@@ -29,13 +29,12 @@ export class GameBodyCardComponent implements OnInit {
 
   ngOnInit() {
     this.startOver();
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
   }
-
-  filteredOptions = this.myControl.valueChanges
-    .pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
