@@ -1,0 +1,74 @@
+<mat-card class="game-body">
+  <mat-card-header>
+    <div *ngIf="(compareValue)&&(!(data.answer==value1))" class="nice-round">
+      <div title="Nice Round">
+        <span id="nice-round">Nice Round</span>
+        <span>Score: 0</span></div>
+    </div>
+    <div class="score" *ngIf="!((compareValue)&&(!(data.answer==value1)))">
+      <div class="score-panel">
+        <div class="score-mark">
+          <span>{{score}}</span>
+        </div>
+        <div id="score-title">
+          <span>Score</span>
+        </div>
+      </div>
+    </div>
+  </mat-card-header>
+
+  <div *ngIf="data" class="actor-card">
+    <span style="margin-bottom:18px;" *ngIf="(compareValue)&&(!(data.answer==value1))"> Here's who you could have guessed</span>
+    <div *ngIf="!compareValue;else cmpinput">
+      <img [src]="data.url"/>
+      <div class="data-title">
+        <div>
+          <div title="Name an actor or actress in">
+            <span>Name an actor or actress in</span>
+            <span id="data-title">{{data.title}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #cmpinput>
+      {{value}}
+      <div *ngIf="data.answer==value1">
+        <img [src]="data.url" style="width:100%;" />
+        <div class="data-title">
+          <div>
+            <div title="Name an actor or actress in">
+              <span>Name an actor or actress in</span>
+              <span id="data-title">{{data.title}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="(compareValue)&&(!(data.answer==value1))">
+        {{value}}
+        <app-actor-list-card></app-actor-list-card>
+      </div>
+    </ng-template>
+</div>
+
+
+  <mat-card-content *ngIf="(!compareValue)||((compareValue)&&(data.answer==value1))">
+    <form class="example-form" style="text-align: center;">
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Type Answer" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" #box (keyup)="0" (keyup.enter)="onEnter(box.value)">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <div *ngIf="(!compareValue)||((compareValue)&&(data.answer==value1))">
+      <button mat-button (click)="startOver()">START OVER</button>
+    </div>
+    <div *ngIf="(compareValue)&&(!(data.answer==value1))" style="text-align: center;">
+      <button mat-button (click)="playAgain()" style="float: initial;">Play Again</button>
+    </div>
+  </mat-card-actions>
+</mat-card>

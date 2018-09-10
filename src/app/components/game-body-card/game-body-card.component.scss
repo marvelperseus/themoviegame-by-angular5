@@ -1,0 +1,107 @@
+.nav-spacer {
+    flex: 1 1 auto;
+}
+mat-card-actions {
+  display: flow-root;
+  button {
+    float: right;
+  }
+}
+mat-card-header {
+  display: block;
+  text-align: center;
+}
+mat-button {
+  right: 30px;
+}
+
+button mat-card {
+  padding: 0;
+  width: 100%;
+}
+.nice-round {
+  text-align: center;
+  div {
+    padding:16px;
+    position:relative;
+    #nice-round {
+       font-size:24px;
+       color:rgba(0, 0, 0, 0.87);
+       display:block;
+       line-height:36px;
+    }
+    span {
+      font-size:14px;
+      color:rgba(0, 0, 0, 0.54);
+      display:block;
+    }
+  }
+}
+
+.score {
+  margin: 0 auto;
+  height: 72px;
+  padding: 16px;
+  font-weight: 500;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.score-panel {
+    display: table;
+    margin: 0 auto;
+  #score-title {
+    display:inline-block;
+    vertical-align:super;
+    span {
+        color:rgba(0, 0, 0, 0.87);
+        display:block;
+        font-size:15px;
+    }
+  }
+}
+.score-mark {
+  height: 40px;
+  width: 40px;
+  user-select: none;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #bdbdbd;
+  text-align: center;
+  line-height: 40px;
+  font-size: 24px;
+  color: #ffffff;
+  margin-right: 16px;
+}
+.actor-card {
+  text-align: center;
+  img {
+    width:100%;
+  }
+  .data-title {
+    height:100%;
+    position:relative;
+    div {
+      position:absolute;
+      bottom:0;right:0;
+      left:0;
+      background:rgba(0, 0, 0, 0.54);
+      div {
+        padding:16px;
+        position:relative;
+        text-align: center;
+        #data-title {
+          font-size:14px;
+          color:rgba(255, 255, 255, 0.54);
+          display:block;
+        }
+        span {
+          font-size:24px;
+          color:rgba(255, 255, 255, 0.87);
+          display:block;
+          line-height:36px;
+        }
+      }
+    }
+  }
+}
